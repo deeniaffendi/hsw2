@@ -1,0 +1,44 @@
+{% load static %}
+
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="{% static 'css/drag.css' %}">
+
+<div class="holder">
+  <h1>Build your dream house</span></h1>
+  <div class="bin" id="bin1">Roof</div> 
+  <div class="bin" id="bin2">Walls</div>
+  <div class="bin" id="bin3">Fence</div>
+    
+  <div id="list1">
+    <ul>
+      <li><a draggable="true" href="" id="wall_brick"><img src="{% static 'Walls/wall_brick.png' %}" alt="wall_brick" /></a></li>
+      <li><a draggable="true" href="" id="wall_concrete"><img src="{% static 'Walls/wall_concrete.png' %}" alt="wall_concrete" /></a></li>
+      <li><a draggable="true" href="" id="wall_steel"><img src="{% static 'Walls/wall_steel.png' %}" alt="wall_steel" /></a></li>
+      <li><a draggable="true" href="" id="wall_vinyl"><img src="{% static 'Walls/wall_vinyl.png' %}" alt="wall_vinyl" /></a></li>
+      <li><a draggable="true" href="" id="wall_wood"><img src="{% static 'Walls/wall_wood.png' %}" alt="wall_wood" /></a></li>
+    </ul>
+  </div>  
+    
+    <div id="list2">
+      <ul>
+        <li><a draggable="true" href="" id="one2">one</a></li>
+        <li><a draggable="true" href="" id="two2">two</a></li>
+        <li><a draggable="true" href="" id="three2">three</a></li>
+        <li><a draggable="true" href="" id="four2">four</a></li>
+        <li><a draggable="true" href="" id="five2">five</a></li>
+      </ul>
+    </div>
+  
+    <div id="list3">
+      <ul>
+        <li><a draggable="true" href="" id="one3">one</a></li>
+        <li><a draggable="true" href="" id="two3">two</a></li>
+      </ul>
+    </div>
+  </div>
+  
+
+</div>
+
+<script src="{% static 'js/drag.js' %}"></script>
