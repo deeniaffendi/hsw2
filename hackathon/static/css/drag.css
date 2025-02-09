@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: url(../img/left_template.png) no-repeat center center fixed;
+  background: url(../img/background.png) no-repeat center center fixed;
   background-size: cover;  /* Set to 80% */
   background-repeat: no-repeat;  /* Prevents tiling and white spaces */
   background-position: center -160px;
@@ -50,6 +50,19 @@ li a {
   border-radius: 10px;
 }
 
+#list2 a img {
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+#list3 a img {
+  width: 300px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+
 *[draggable=true] {
   -moz-user-select:none;
   -khtml-user-drag: element;
@@ -61,26 +74,29 @@ li a {
 }
 
 li a:hover:after {
-  content: ' (drag me)';
+  content: attr(data-name);
 }
 
 #list1 {
-  padding: 1px 20px;  /* Adjust this as needed */
+  padding: 1px 20px;
   position: absolute;
-  top: 100px;   /* Move it down */
-  left: 1px;  /* Move it right */
+  top: 100px;
+  left: 1px;
+  max-height: 500px;
+  overflow-y: auto;
+  border: 1px solid #cccccc00;
 }
 
 #list2 {
   position: absolute;
   top: 100px;
-  left: 350px;
+  left: 200px;
 }
 
 #list3 {
   position: absolute;
-  top: 300px;
-  left: 700px;
+  top: 200px;
+  left: 430px;
 }
 
 li {
@@ -127,32 +143,247 @@ li.over {
   position: absolute;
   z-index: 10; /* Keeps it on top of other elements */
   margin-top: 0;
-  background: rgba(0, 0, 0, 0.1); /* Slight background to indicate the area */
+  background: rgba(255, 74, 74, 0.1); /* Slight background to indicate the area */
   border: 3px dashed transparent; /* Dashed border for both bins */
   transition: border 0.3s ease, background 0.3s ease; /* Smooth transition */
   cursor: pointer; /* Make sure it's clear that it's interactive */
 }
 
-/* Align both bins properly */
 #bin1 {
-  top: 270px;
-  left: 1030px;
+  top: 180px;
+  left: 820px;
   height: 100px;
-  width: 795px;
+  width: 630px;
+  display: flex;
+  justify-content: center; /* Horizontally center the text */
+  align-items: center; /* Vertically center the text */
+  text-align: center; /* Ensure the text is centered in case it's multiple lines */
 }
 
+
 #bin2 {
-  top: 380px;
-  left: 1090px;
-  height: 400px;
-  width: 690px;
+  top: 260px;
+  left: 860px;
+  height: 330px;
+  width: 550px;
 }
 
 #bin3 {
-  top: 750px;
-  left: 1090px;
+  top: 560px;
+  left: 799px;
   height: 100px;
+  width: 650px;
+}
+
+/* .dropped-image {
+  height: 400px;
   width: 690px;
+} */
+
+#bin1 .dropped-image {
+  height: 100px;
+  width: 630px;
+  margin-top: -20px;
+}
+
+#bin2 .dropped-image {
+  height: 360px;
+  width: 550px;
+  margin-top: -17px;
+}
+
+#bin3 .dropped-image {
+  height: 100px;
+  width: 650px;
+  margin-top: -20px;
+}
+
+/* Positioning text generally for all bins */
+.bin-text {
+  position: absolute;
+  top: 50%;  /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%);  /* Adjust for perfect centering */
+  font-size: 18px;  /* Slightly larger font size */
+  font-weight: bold;  /* Make the text bold */
+  color: #ffffff; /* Adjust text color as needed */
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6); /* Glowing effect */
+  animation: glowAnimation 1.5s infinite alternate;  /* Apply the glow animation */
+}
+
+/* Individual positioning for each bin (if needed) */
+#bin1 .bin-text {
+  top: 50px;  /* Adjust vertical position for bin1 */
+  left: 50%;
+}
+
+#bin2 .bin-text {
+  top: 50%;  /* Adjust vertical position for bin2 */
+  left: 50%;
+}
+
+#bin3 .bin-text {
+  top: 50%;  /* Adjust vertical position for bin3 */
+  left: 50%;
+}
+
+/* Glow animation with all red */
+@keyframes glowAnimation {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 0, 0, 1), 0 0 10px rgba(255, 0, 0, 0.8);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 0, 0, 1), 0 0 30px rgba(255, 0, 0, 1); /* Stronger red glow */
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(255, 0, 0, 1), 0 0 10px rgba(255, 0, 0, 0.8);
+  }
+}
+
+button {
+  border: 0;
+  background: transparent;
+  webkit-appearance: none;
+  appearance: none;
+  font-size: 16px;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+}
+
+.add-to-cart {
+  width: 180px;
+  height: 50px;
+  position: relative;
+  z-index: 2;
+  background: #41BD59;
+  color: #fff;
+  border-radius: 3px;
+  transition: all 0.2s ease-out;
+  &:hover {
+    background-color: #38a54d;
+  }
+}
+
+.btn-wrapper {
+  position: fixed;
+  top: 20px;  /* Distance from the top of the screen */
+  right: 20px;  /* Distance from the right side of the screen */
+  z-index: 10; /* Make sure the button is on top of other content */
+}
+
+.btn-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.btn-text {
+  white-space: nowrap;
+  line-height: 50px;
+  transition: all 0.2s ease-in-out;
+}
+
+.add {
+  .add-to-cart {
+    animation: 0.3s btn-add normal forwards ease;
+  }
+  
+  .btn-text {
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .circle {
+    animation-delay: 0.2s;
+    animation-name: circle-check-loader;
+  }
+
+  .check {
+    animation-delay: 0.85s;
+    animation-name: check;
+  }	
+}
+
+@keyframes btn-add {
+  
+  80% {
+    opacity: 1;
+    
+  }
+  
+  95% {
+    width: 50px;
+    border-radius: 100px;
+    background-color: transparent;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.icon-loader-check {
+  width: 54px;
+  height: 54px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+
+.circle {
+  stroke-dashArray: 1666, 1650;
+  stroke-dashoffset: 2000;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-delay: 0s;
+}
+
+.check {
+  stroke-dashArray: 340;
+  stroke-dashoffset: 340;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-duration: 0.6s;
+  animation-delay: 1s;
+}
+
+@keyframes circle-check-loader {
+	0% { 
+		stroke-dashArray: 1666, 1650;
+		stroke-dashoffset: 2000;
+	}
+  
+  40% {
+  }
+
+	100% {
+		stroke-dashOffset: 3320;
+	}
+}
+
+
+@keyframes check {
+	0% { 
+		stroke-dashArray: 340;
+		stroke-dashoffset: 340;
+    opacity: 0;
+	}
+  
+  40% {
+    opacity: 1;
+  }
+
+	100% {
+		stroke-dashOffset: 94;
+    opacity: 1;
+	}
 }
 
 /*font-face*/
