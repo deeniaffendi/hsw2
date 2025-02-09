@@ -1,0 +1,62 @@
+{% load static %}
+
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="{% static 'css/drag.css' %}">
+
+<div class="holder">
+  <h1>Build your dream house</span></h1>
+  <div class="bin" id="bin1">
+    <span class="bin-text">Drag roof here to customize</span>
+  </div>
+  <div class="bin" id="bin2">
+    <span class="bin-text">Drag wall here to customize</span>
+  </div>
+  <div class="bin" id="bin3">
+    <span class="bin-text">Drag fence here to customize</span>
+  </div>
+  
+    
+  <div id="list1">
+    <ul>
+      <li><a draggable="true" href="" id="wall_brick" data-name="Brick Wall"><img src="{% static 'img/wall/wall_stucco_brick.png' %}" alt="wall_brick" /></a></li>
+      <li><a draggable="true" href="" id="wall_cement" data-name="Cement Wall"><img src="{% static 'img/wall/wall_cement.png' %}" alt="wall_cement" /></a></li>
+      <li><a draggable="true" href="" id="wall_steel" data-name="Steel Wall"><img src="{% static 'img/wall/wall_metal.png' %}" alt="wall_steel" /></a></li>
+      <li><a draggable="true" href="" id="wall_vinyl" data-name="Vinyl Wall"><img src="{% static 'img/wall/wall_vinyl.png' %}" alt="wall_vinyl" /></a></li>
+      <li><a draggable="true" href="" id="wall_wood" data-name="Wood Wall"><img src="{% static 'img/wall/wall_wood.png' %}" alt="wall_wood" /></a></li>
+    </ul>
+  </div>  
+    
+    <div id="list2">
+      <ul>
+        <li><a draggable="true" href="" id="roof_asphalt" data-name="Asphalt Roof"><img src="{% static 'img/roof/roof_asphalt.png' %}" alt="roof_asphalt" /></a></li>
+        <li><a draggable="true" href="" id="roof_concrete" data-name="Concrete Roof"><img src="{% static 'img/roof/roof_concrete.png' %}" alt="roof_concrete" /></a></li>
+        <li><a draggable="true" href="" id="roof_metal" data-name="Metal Roof"><img src="{% static 'img/roof/roof_metal.png' %}" alt="roof_metal" /></a></li>
+        <li><a draggable="true" href="" id="roof_tile" data-name="Tile Roof"><img src="{% static 'img/roof/roof_tile.png' %}" alt="roof_tile" /></a></li>
+        <li><a draggable="true" href="" id="roof_wood" data-name="roof_wood Roof"><img src="{% static 'img/roof/roof_wood.png' %}" alt="roof_wood" /></a></li>
+      </ul>
+    </div>
+  
+    <div id="list3">
+      <ul>
+        <li><a draggable="true" href="" id="fence_metal" data-name="Metal Fence"><img src="{% static 'img/fence/fence_metal.png' %}" alt="fence_metal" /></a></li>
+        <li><a draggable="true" href="" id="fence_wood" data-name="Wooden Fence"><img src="{% static 'img/fence/fence_wood.png' %}" alt="fence_wood" /></a></li>
+        <li><a draggable="true" href="" id="no_fence" data-name="No Fence"><img src="{% static 'img/fence/no_fence.png' %}" alt="no_fence" /></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="btn-wrapper">
+  <button class="add-to-cart"><span class="btn-text">Add to cart</span></button>
+  
+  <svg class="icon-loader-check" x="0px" y="0px" width="471.197px" height="471.197px" viewBox="0 0 510 510" overflow="inherit" preserveAspectRatio="xMidYMid meet">
+	<g id="loader">
+		<circle class="circle" fill="transparent" stroke="#41BD59" stroke-width="48" stroke-linecap="round" stroke-miterlimit="10" cx="250" cy="250" r="212.599"/>
+		<polyline class="check" fill="none" stroke="#41BD59" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" points="
+	227.599,322.099 290.599,259.099 180.599,149.099 "/>
+	</g>
+</svg>
+</div>
+
+<script src="{% static 'js/drag.js' %}"></script>
